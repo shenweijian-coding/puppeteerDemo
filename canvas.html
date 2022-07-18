@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+.mark{
+    position:absolute;
+    height:100px;
+    width:100px;
+    left:100px;
+    top:180px;
+    border:1px solid #000;
+    cursor:move;
+}
+.canvas-box{
+  position: relative;
+}
+.canvas-box canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+    </style>
+</head>
+<body>
+<canvas id="c1"></canvas> //显示原图像
+<!-- <div class="mark" id="mark"></div> -->
+
+<div class="canvas-box">
+  <canvas id="c3"></canvas>
+  <canvas id="c4"></canvas>
+</div>
+<script>
+    var canvas1 = document.getElementById("c1")
+    // var oMark = document.getElementById("mark")
+    var canvas3= document.getElementById("c3")
+    var canvas4= document.getElementById("c4")
+     canvas1.height = 450;
+    canvas1.width=240;
+    
+    canvas3.height=150;
+    canvas3.width=240;
+
+    canvas4.width=240;
+    var cxt1 = canvas1.getContext("2d")
+    var cxt3 = canvas3.getContext("2d")
+    var cxt4 = canvas4.getContext("2d")
+    var img = new Image();
+    img.src = "./response.png";
+    // var srcX = oMark.offsetLeft-canvas1.getBoundingClientRect().left;
+    // var srcY = oMark.offsetTop-canvas1.getBoundingClientRect().top;
+    // var sWidth = oMark.offsetWidth;
+    // var sHeight = oMark.offsetHeight;
+
+    // var canvas2 = document.createElement("canvas")
+    // var cxt2=canvas2.getContext("2d")
+    img.onload = function(){
+        cxt1.drawImage(img,0,0,canvas1.width,canvas1.height);
+        cxt3.drawImage(img,0,0,canvas3.width,canvas3.height, 0, 0, 240, 150);
+        cxt4.drawImage(img,0,150,canvas3.width,canvas3.height, 0, 0, 240, 150);
+        // var dataImg = cxt1.getImageData(srcX,srcY,sWidth,sHeight)
+        // canvas2.width = sWidth;
+        // canvas2.height = sHeight;
+        // cxt2.putImageData(dataImg,0,0,0,0,canvas2.width,canvas2.height)
+        // var img2 = canvas2.toDataURL("image/png");
+
+        // var cxt3=canvas3.getContext("2d")
+        // var img3 = new Image();
+        // img3.src = img2;
+        // img3.onload  = function(){
+        //     cxt3.drawImage(img3,0,0,canvas3.width,canvas3.height)
+        // }
+
+    }
+</script>
+</body>
+</html>
