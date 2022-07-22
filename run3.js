@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const devices = require("puppeteer/DeviceDescriptors");
-const iPhone = devices["iPhone 6 Plus"];
+const iPhone = devices["iPhone XR"];
 let timeout = function (delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

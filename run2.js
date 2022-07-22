@@ -32,7 +32,14 @@ async function run() {
   page.click(".geetest_radar");
   await timeout(1000);
 
-  btn_position = await getBtnPosition();
+  // btn_position = await getBtnPosition();
+  btn_position = await page.evaluate(() => { 
+    const { x, y } = document.querySelector(".geetest_slider_button") && document.querySelector(".geetest_slider_button").getBoundingClientRect()
+    return {
+      btn_left: x + 30,
+      btn_top: y + 34
+    }
+  })
   // 5.滑动
   drag(null);
 }

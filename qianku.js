@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const devices = require("puppeteer/DeviceDescriptors");
-// const iPhone = devices["iPhone 6 Plus"];
+const iPhone = devices["iPhone 6"];
 let timeout = function (delay) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -30,7 +30,7 @@ const addCookies = async (cookies_str, page, domain) => {
   }))
 }
 
-let cookie = `mediav=%7B%22eid%22%3A%221099916%22%2C%22ep%22%3A%22%22%2C%22vid%22%3A%22-et0jcSD%2329jyfFXTG%3Aw%22%2C%22ctn%22%3A%22%22%2C%22vvid%22%3A%22-et0jcSD%2329jyfFXTG%3Aw%22%2C%22_mvnf%22%3A1%2C%22_mvctn%22%3A0%2C%22_mvck%22%3A0%2C%22_refnf%22%3A1%7D; adIssem=0; _ga=GA1.2.1817299266.1655038685; track_id=74866fc5a9f46cef0e67a47cee9c4917e9a5db4e81a2669821461561f612ec3ca%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22track_id%22%3Bi%3A1%3Bs%3A51%3A%221237bbbcb41ae6e2c6f48e95498477781656127171.47991088%22%3B%7D; _k_iprec_wd_1=%7C-; referer=%22%5C%2F%5C%2F588ku.com%5C%2F%22; bt_guid=%22a0e0f12c880315a52d7a02372ad00467%22; FIRSTVISITED=1657806199.025; 588ku_login_refer_url=%22https%3A%5C%2F%5C%2F588ku.com%5C%2F%22; success_target_path=%22%5C%2F%5C%2F588ku.com%5C%2F%22; ISREQUEST=1; WEBPARAMS=is_pay=1; ui_588ku=dWlkPTAmdWM9JnVzPSZ0PTEyMzdiYmJjYjQxYWU2ZTJjNmY0OGU5NTQ5ODQ3Nzc4MTY1NjEyNzE3MS40Nzk5MTA4OCZncj0xJnVycz0%3D; ele_search_words=%5B%22tanwei%22%5D; Hm_lvt_6434381c05f6d955403c23f84f441f82=1656940876,1657806228; _gid=GA1.2.826524232.1657930361; auth_id=%2217269040%7C%5Cu5de6%5Cu4e0b%5Cu89d2%5Cu7684%5Cu6211%7C1658806622%7C746c6f091f6f0bceee4ca191e479d367%22; sns=%7B%22token%22%3A%7B%22access_token%22%3A%224213154E49F709FD01AD574EA4FC53B5%22%2C%22expires_in%22%3A%227776000%22%2C%22refresh_token%22%3A%2226EC886C9136C9B0A021F16531A3E2DB%22%2C%22openid%22%3A%22C6CA4469FE3143C119546419CDF24663%22%7D%2C%22type%22%3A%22qq%22%7D; 588ku_eid=172467%7C1658806624; e_ssid=s588ku62d23260e86841.07819382; source_url=588ku.com; _k_iprec_1=124.127.0.47; _k_ut_v1=%7B%22ip%22%3A%22124.127.0.47%22%2C%22d%22%3A%222022-07-17%22%2C%22h%22%3A%22%22%2C%22hd%22%3A%22%22%2C%22sem%22%3A%22%22%2C%22host%22%3A%22588ku.com%22%2C%22bm%22%3A5%2C%22kw%22%3A%22%22%7D; host=588ku.com; back_search_words=%5B%22kejichengshi%22%5D; backConditionFilterField=8_0; webpage_search_words=%5B%22jiaoyu%22%5D; IPSSESSION=ndltc86lmf292hletnup759sh6; Qs_lvt_474541=1657930360%2C1657954549%2C1658026956%2C1658059021; down_type=1; 588KUSSID=t53p871qkpq3267ereo4q1pdr5; Hm_lvt_3e90322e8debb1d06c9c463f41ea984b=1657930361,1658026957,1658059019,1658064250; Hm_lvt_8226f7457e3273fa68c31fdc4ebf62ff=1657930361,1658026957,1658059019,1658064250; mediav=%7B%22eid%22%3A%221099916%22%2C%22ep%22%3A%22%22%2C%22vid%22%3A%224L.7at3U8%608n%24JC!%40%3CmA%22%2C%22ctn%22%3A%22%22%2C%22vvid%22%3A%224L.7at3U8%608n%24JC!%40%3CmA%22%2C%22_mvnf%22%3A1%2C%22_mvctn%22%3A0%2C%22_mvck%22%3A0%2C%22_refnf%22%3A1%7D; qk_host=588ku.com; keyword=%22%5Cu91d1%5Cu878d%22; all_pic_search_words=%5B%22jinrong%22%2C%22xiatian%22%2C%22taiyang%22%2C%22kuaishoudouyinlogo%22%2C%22102558545%22%2C%22shiwu%22%5D; search:last:keyword=%22%5Cu91d1%5Cu878d%22; 6cef5aee53857eab7fd1673c93f271f3=%220a35a8a8059a99fb4f9570dd8c0a57c7%22; location=99; login_pv=49; _gat_gtag_UA_139867171_1=1; Hm_lpvt_3e90322e8debb1d06c9c463f41ea984b=1658069065; Hm_lpvt_8226f7457e3273fa68c31fdc4ebf62ff=1658069065; Qs_pv_474541=531333470547387900%2C3194197584916241400%2C365697968807448400%2C2409954286656831000%2C653853442742818700`
+let cookie = `adIssem=0; _ga=GA1.2.1817299266.1655038685; track_id=74866fc5a9f46cef0e67a47cee9c4917e9a5db4e81a2669821461561f612ec3ca%3A2%3A%7Bi%3A0%3Bs%3A8%3A%22track_id%22%3Bi%3A1%3Bs%3A51%3A%221237bbbcb41ae6e2c6f48e95498477781656127171.47991088%22%3B%7D; _k_iprec_wd_1=%7C-; referer=%22%5C%2F%5C%2F588ku.com%5C%2F%22; bt_guid=%22a0e0f12c880315a52d7a02372ad00467%22; FIRSTVISITED=1657806199.025; 588ku_login_refer_url=%22https%3A%5C%2F%5C%2F588ku.com%5C%2F%22; success_target_path=%22%5C%2F%5C%2F588ku.com%5C%2F%22; ISREQUEST=1; WEBPARAMS=is_pay=1; ui_588ku=dWlkPTAmdWM9JnVzPSZ0PTEyMzdiYmJjYjQxYWU2ZTJjNmY0OGU5NTQ5ODQ3Nzc4MTY1NjEyNzE3MS40Nzk5MTA4OCZncj0xJnVycz0%3D; ele_search_words=%5B%22tanwei%22%5D; Hm_lvt_6434381c05f6d955403c23f84f441f82=1656940876,1657806228; back_search_words=%5B%22kejichengshi%22%5D; webpage_search_words=%5B%22jiaoyu%22%5D; all_pic_search_words=%5B%22jinrong%22%2C%22xiatian%22%2C%22taiyang%22%2C%22kuaishoudouyinlogo%22%2C%22102558545%22%2C%22shiwu%22%5D; no_login_pv=1; 588KUSSID=f3da11khdvdnv3ekn1anrdg8u6; _k_iprec_1=36.112.204.149; _k_ut_v1=%7B%22ip%22%3A%2236.112.204.149%22%2C%22d%22%3A%222022-07-19%22%2C%22h%22%3A%22%22%2C%22hd%22%3A%22%22%2C%22sem%22%3A%22%22%2C%22host%22%3A%22588ku.com%22%2C%22bm%22%3A9%2C%22kw%22%3A%22%22%7D; Hm_lvt_3e90322e8debb1d06c9c463f41ea984b=1658026957,1658059019,1658064250,1658231837; _gid=GA1.2.794634150.1658231838; Hm_lvt_8226f7457e3273fa68c31fdc4ebf62ff=1658026957,1658059019,1658064250,1658231838; temp_login_uid=17269040; temp_login_avator=%22http%3A%5C%2F%5C%2Fthirdqq.qlogo.cn%5C%2Fqqapp%5C%2F101252414%5C%2FC6CA4469FE3143C119546419CDF24663%5C%2F100%22; temp_login_flag2=1; auth_id=%2217269040%7C%5Cu5de6%5Cu4e0b%5Cu89d2%5Cu7684%5Cu6211%7C1659095966%7C8d32dbe7be7aa189a7424875389f49f7%22; sns=%7B%22token%22%3A%7B%22access_token%22%3A%224213154E49F709FD01AD574EA4FC53B5%22%2C%22expires_in%22%3A%227776000%22%2C%22refresh_token%22%3A%2226EC886C9136C9B0A021F16531A3E2DB%22%2C%22openid%22%3A%22C6CA4469FE3143C119546419CDF24663%22%7D%2C%22type%22%3A%22qq%22%7D; last_login_type=1; IPSSESSION=asa1svrcfmhv3re080eq3pnia2; 588ku_eid=172467%7C1659095977; e_ssid=s588ku62d69ca906aef4.56213343; vipGather=1; growPonitsigncode=1; 60840175e8d41e29906b9e83321fda6c=%220a35a8a8059a99fb4f9570dd8c0a57c7%22; down_type=1; Qs_lvt_474541=1658026956%2C1658059021%2C1658231838%2C1658238939%2C1658238952; keyword=%22%5Cu98df%5Cu7269%22; search:last:keyword=%22%5Cu98df%5Cu7269%22; location=99; login_pv=12; Hm_lpvt_3e90322e8debb1d06c9c463f41ea984b=1658238992; Hm_lpvt_8226f7457e3273fa68c31fdc4ebf62ff=1658238992; Qs_pv_474541=2717167922045082600%2C911834269619390200%2C2374569605899726000%2C3609993037935899600%2C963373235049779800`
 
 async function run() {
   const browser = await puppeteer.launch({
@@ -39,7 +39,7 @@ async function run() {
   });
   page = await browser.newPage();
   // await page.emulate(iPhone);
-  await addCookies(cookie, page, '588ku.com')
+  await addCookies(cookie, page, '.588ku.com')
   await timeout(2000);
   await page.goto("https://588ku.com/ycpng/13347673.html");
   await timeout(2000);
@@ -47,13 +47,21 @@ async function run() {
   // 4.点击验证
   // const down_btn = await page.$(".btns-box")
   // console.log(down_btn);
-  page.click(".show-company-guide");
+  await page.click(".show-company-guide");
+  // await page.click(".down-file>p");
 
-  // await timeout(9000);
+  await timeout(7000);
+  btn_position = await page.evaluate(() => { 
+    const { x, y } = document.querySelector(".geetest_slider_button") && document.querySelector(".geetest_slider_button").getBoundingClientRect()
+    return {
+      btn_left: x,
+      btn_top: y + 34
+    }
+  })
 
   // btn_position = await getBtnPosition();
-  // // 5.滑动
-  // drag(null);
+  // 5.滑动
+  drag(null);
 }
 
 /**
@@ -115,8 +123,8 @@ function getBtnPosition() {
  * */
 async function tryValidation(distance) {
   //将距离拆分成两段，模拟正常人的行为
-  const distance1 = distance - 10;
-  const distance2 = 10;
+  const distance1 = distance - 30;
+  const distance2 = 30;
 
   page.mouse.click(btn_position.btn_left, btn_position.btn_top, {
     delay: 2000,
@@ -125,7 +133,7 @@ async function tryValidation(distance) {
   page.mouse.move(btn_position.btn_left + distance1, btn_position.btn_top, {
     steps: 30,
   });
-  await timeout(800);
+  await timeout(1000);
   page.mouse.move(
     btn_position.btn_left + distance1 + distance2,
     btn_position.btn_top,
